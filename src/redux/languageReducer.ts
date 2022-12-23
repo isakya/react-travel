@@ -12,5 +12,10 @@ const defaultState: LanguageState = {
 }
 
 export default (state = defaultState, action) => {
+  if(action.type === 'change_language') {
+    // 不能直接修改state，只能利用它创建新的数据
+    const newState = {...state, language: action.payload}
+    return newState
+  }
   return state
 }
